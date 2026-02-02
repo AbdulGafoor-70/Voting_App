@@ -8,14 +8,14 @@ A simple and intuitive voting application built with Flutter using Provider stat
 <summary>Click to view screenshots</summary>
 
 ### Voting Screen
-<img src = "image1.png" width ="200" />
+<img src = "screenshot/image1.png" width ="200" />
 
 - Main interface where users can cast their votes
 - Shows list of candidates with vote buttons
 - Bottom navigation to results page
 
 ### Results Screen - Winner
-<img src = "image2.png" width ="200" />
+<img src = "screenshot/image2.png" width ="200" />
 
 - Displays vote counts for each candidate
 - Highlights the winning candidate
@@ -23,7 +23,7 @@ A simple and intuitive voting application built with Flutter using Provider stat
 - Reset button to clear the votes list
 
 ### Results Screen - Tie
-<img src = "image3.png" width ="200" />
+<img src = "screenshot/image3.png" width ="200" />
 
 </details>
 
@@ -41,8 +41,8 @@ A simple and intuitive voting application built with Flutter using Provider stat
 ## 🛠️ Prerequisites
 
 Before you begin, ensure you have the following installed:
-- [Flutter](https://flutter.dev/docs/get-started/install) (2.0.0 or higher)
-- [Dart](https://dart.dev/get-dart) (2.12.0 or higher)
+- [Flutter](https://flutter.dev/docs/get-started/install) 
+- [Dart](https://dart.dev/get-dart) 
 - [Git](https://git-scm.com/downloads)
 - IDE with Flutter support ([VS Code](https://code.visualstudio.com/), [Android Studio](https://developer.android.com/studio), etc.)
 
@@ -122,18 +122,6 @@ project_root/
     - See vote counts and percentages
     - The winner is highlighted
 
-## 🧪 Running Tests
-
-```bash
-# Run all unit tests
-flutter test
-
-# Run tests with coverage
-flutter test --coverage
-
-# Generate coverage report
-genhtml coverage/lcov.info -o coverage/html
-```
 
 ## 🤝 Contributing
 
@@ -163,33 +151,7 @@ git push origin feature/AmazingFeature
 - Run `flutter analyze` before committing
 - Format code using `flutter format .`
 
-## 🐛 Known Issues
 
-See the [GitHub Issues](https://github.com/yourusername/flutter_voting_app/issues) section to report any bugs or feature requests.
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) [year] [your name]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software...
-```
-
-## 👥 Authors
-
-- Your Name - [GitHub](https://github.com/yourusername) - [Twitter](https://twitter.com/yourusername)
-
-## 🙏 Acknowledgments
-
-- [Flutter](https://flutter.dev/) team for the amazing framework
-- [Provider](https://pub.dev/packages/provider) package for state management
-- [Material Design](https://material.io/design) for UI guidelines
-- All contributors who participate in this project
 
 ## 📱 Platform Support
 
@@ -200,12 +162,6 @@ of this software...
 - ✅ macOS
 - ✅ Linux
 
-## 🔄 Version History
-
-* 1.0.0
-    * Initial Release
-    * Basic voting functionality
-    * Results display
 
 ## 🚀 Development
 
@@ -227,16 +183,6 @@ To fix a bug or enhance an existing module, follow these steps:
 - [ ] Multiple voting categories
 - [ ] Vote history
 - [ ] Export results
-- [ ] Dark mode support
+- [ ] Reset button
 - [ ] Offline support
 
-## 🔍 FAQ
-
-**Q: Can I modify and redistribute this app?**
-A: Yes, under the terms of the MIT license.
-
-**Q: How can I contribute to the project?**
-A: See the Contributing section above.
-
-**Q: Is this app production-ready?**
-A: This is a sample project but can be enhanced for production use.
