@@ -8,14 +8,14 @@ A simple and intuitive voting application built with Flutter using Provider stat
 <summary>Click to view screenshots</summary>
 
 ### Voting Screen
-<img src = "/screenshot/pic1.png" width ="200" />
+<img src = "image1.png" width ="200" />
 
 - Main interface where users can cast their votes
 - Shows list of candidates with vote buttons
 - Bottom navigation to results page
 
 ### Results Screen - Winner
-<img src = "/screenshot/pic2.png" width ="200" />
+<img src = "image2.png" width ="200" />
 
 - Displays vote counts for each candidate
 - Highlights the winning candidate
@@ -23,7 +23,7 @@ A simple and intuitive voting application built with Flutter using Provider stat
 - Reset button to clear the votes list
 
 ### Results Screen - Tie
-<img src = "/screenshot/pic3.png" width ="200" />
+<img src = "image3.png" width ="200" />
 
 </details>
 

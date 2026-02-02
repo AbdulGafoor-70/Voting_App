@@ -19,6 +19,7 @@ class VotingScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
+          ///  Candidate list
           Expanded(
             child: ListView.builder(
               itemCount: votingProvider.candidates.length,
@@ -47,36 +48,39 @@ class VotingScreen extends StatelessWidget {
             ),
           ),
 
-          // VIEW RESULTS BUTTON 
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ResultScreen(),
-                ),
-              );
-            },
-            child: const Text('View Results'),
-          ),
-
-          const SizedBox(height: 10),
-
-          // RESET VOTING BUTTON 
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.redAccent,
+          Expanded(
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ResultScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('View Results'),
+                  ),
+                  const SizedBox(height: 15),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.redAccent,
+                    ),
+                    onPressed: () {
+                      votingProvider.resetVotes();
+                    },
+                    child: const Text(
+                      'Reset Voting',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            onPressed: () {
-              votingProvider.resetVotes();
-            },
-            child: const Text(
-              'Reset Voting',
-              style: TextStyle(color: Colors.white),
-            ),
           ),
-
-          const SizedBox(height: 20),
         ],
       ),
     );
