@@ -47,7 +47,7 @@ class VotingScreen extends StatelessWidget {
             ),
           ),
 
-          // ================= VIEW RESULTS BUTTON =================
+          // VIEW RESULTS BUTTON 
           ElevatedButton(
             onPressed: () {
               Navigator.push(
@@ -62,7 +62,7 @@ class VotingScreen extends StatelessWidget {
 
           const SizedBox(height: 10),
 
-          // ================= RESET VOTING BUTTON =================
+          // RESET VOTING BUTTON 
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.redAccent,

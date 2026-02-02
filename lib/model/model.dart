@@ -9,3 +9,4 @@ class Candidate {
     this.votes = 0,
   });
 }
+

@@ -20,6 +20,7 @@ A simple and intuitive voting application built with Flutter using Provider stat
 - Displays vote counts for each candidate
 - Highlights the winning candidate
 - Shows percentage of total votes
+- Reset button to clear the votes list
 
 ### Results Screen - Tie
 <img src = "/screenshot/pic3.png" width ="200" />

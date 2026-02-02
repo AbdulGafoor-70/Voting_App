@@ -31,8 +31,6 @@ class VotingProvider with ChangeNotifier {
     });
   }
 
-  // ================= EXISTING WINNER LOGIC (UNCHANGED) =================
-
   List<Candidate> get winners {
     if (_candidates.isEmpty) return [];
 
@@ -49,7 +47,7 @@ class VotingProvider with ChangeNotifier {
 
   bool get isTie => winners.length > 1;
 
-  // ===================== ADDED CODE (NO BREAKING CHANGES) =====================
+  
 
   /// Text for result screen (Winner / Tie)
   String get resultText {
@@ -69,7 +67,6 @@ class VotingProvider with ChangeNotifier {
     return winners.any((c) => c.id == candidate.id);
   }
 
-  // ===================== STEP 1: RESET VOTING =====================
 
   /// Reset all votes to start voting from zero again
   void resetVotes() {
