@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:voting/model/model.dart';
 
@@ -16,19 +15,23 @@ class VotingProvider with ChangeNotifier {
   List<Candidate> get candidates => _candidates;
 
   void vote(String candidateId) {
-    _candidates = _candidates.map((candidates) {
-      if (candidates.id == candidateId) {
-        candidates.votes += 1;
+    _candidates = _candidates.map((candidate) {
+      if (candidate.id == candidateId) {
+        candidate.votes += 1;
       }
-      return candidates;
+      return candidate;
     }).toList();
+
     selectedCandidateId = candidateId;
     notifyListeners();
+
     Timer(const Duration(seconds: 1), () {
       selectedCandidateId = null;
       notifyListeners();
     });
   }
+
+  // ================= EXISTING WINNER LOGIC (UNCHANGED) =================
 
   List<Candidate> get winners {
     if (_candidates.isEmpty) return [];
@@ -37,10 +40,43 @@ class VotingProvider with ChangeNotifier {
         _candidates.map((c) => c.votes).reduce((a, b) => a > b ? a : b);
 
     if (highestVotes == 0) return [];
+
     List<Candidate> topCandidates =
         _candidates.where((c) => c.votes == highestVotes).toList();
+
     return topCandidates;
   }
 
   bool get isTie => winners.length > 1;
+
+  // ===================== ADDED CODE (NO BREAKING CHANGES) =====================
+
+  /// Text for result screen (Winner / Tie)
+  String get resultText {
+    if (winners.isEmpty) {
+      return 'No votes yet';
+    }
+
+    if (winners.length == 1) {
+      return 'Winner: ${winners.first.name}';
+    }
+
+    return 'Tie between ${winners.map((c) => c.name).join(", ")}';
+  }
+
+  /// Check if a candidate is winner or part of tie
+  bool isWinner(Candidate candidate) {
+    return winners.any((c) => c.id == candidate.id);
+  }
+
+  // ===================== STEP 1: RESET VOTING =====================
+
+  /// Reset all votes to start voting from zero again
+  void resetVotes() {
+    for (var candidate in _candidates) {
+      candidate.votes = 0;
+    }
+    selectedCandidateId = null;
+    notifyListeners();
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../provider/voting_provider.dart';
+import '../model/model.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});
@@ -9,15 +9,13 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final votingProvider = Provider.of<VotingProvider>(context);
-    final isTie = votingProvider.isTie;
+    final bool isTie = votingProvider.isTie;
     final winners = votingProvider.winners;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
         title: const Text("Voting Result"),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -25,19 +23,28 @@ class ResultScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: votingProvider.candidates.length,
               itemBuilder: (context, index) {
-                final candidate = votingProvider.candidates[index];
-                final isWinner = winners.contains(candidate);
+                final Candidate candidate =
+                    votingProvider.candidates[index];
+
+                final bool isWinner = winners.any(
+                  (c) => c.id == candidate.id,
+                );
+
                 return ListTile(
                   title: Text(
                     candidate.name,
                     style: TextStyle(
-                        fontWeight:
-                            isWinner ? FontWeight.bold : FontWeight.normal,
-                        color: isWinner ? Colors.green : Colors.black),
+                      fontWeight:
+                          isWinner ? FontWeight.bold : FontWeight.normal,
+                      color: isWinner ? Colors.green : Colors.black,
+                    ),
                   ),
-                  trailing: Text("Votes:${candidate.votes}"),
+                  trailing: Text("Votes: ${candidate.votes}"),
                   subtitle: isWinner
-                      ? Text(isTie ? "Tie for winner" : "Winner")
+                      ? Text(
+                          isTie ? "Tie for winner" : "Winner",
+                          style: const TextStyle(color: Colors.green),
+                        )
                       : null,
                 );
               },
@@ -46,15 +53,14 @@ class ResultScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
-              textAlign: TextAlign.center,
               isTie ? "It's a tie!" : "Winner",
               style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: isTie ? Colors.red : Colors.green),
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+                color: isTie ? Colors.red : Colors.green,
+              ),
             ),
           ),
-          const Spacer(),
         ],
       ),
     );
